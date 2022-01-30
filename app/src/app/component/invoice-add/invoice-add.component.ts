@@ -34,7 +34,7 @@ export class InvoiceAddComponent implements OnInit {
 
     this.activatedRoute.params.subscribe(
       params => {
-        customerId = params['idcustomer']
+        customerId = params['id_customer']
 
         // Init customer information
         this.apiService.getCustomerById(customerId).subscribe(
