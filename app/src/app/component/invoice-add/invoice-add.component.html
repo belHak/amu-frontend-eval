@@ -23,7 +23,7 @@
         </div>
 
       </fieldset>
-      <button [disabled]="!invoiceForm.value.status || !invoiceForm.value.amount" class="btn btn-primary">Enregistrer la facture</button>
+      <button [disabled]="!invoiceForm.value.status || !invoiceForm.value.amount" class="btn btn-primary" id="register-invoice">Enregistrer la facture</button>
       <button type="button" class="btn btn-secondary" (click)="returnToCustomer()">Retour aux clients</button>
 
 

@@ -1,6 +1,6 @@
 <h1>Liste des clients</h1>
 <button type="button" class="btn btn-primary" (click)="goToCreateClient()">Créer un client</button>
-<table class="table table-hover">
+<table class="table table-hover" id="customer-list">
   <thead>
   <tr>
     <th scope="col">FullName</th>
@@ -13,9 +13,9 @@
     <td>Aucun client</td>
   </div>
 
-  <tr *ngFor="let customer of customers" (click)="goToCustomerDetails(customer.id)">
-    <td>{{customer.fullName}}</td>
-    <td>{{customer.email}}</td>
+  <tr *ngFor="let customer of customers" (click)="goToCustomerDetails(customer.id)" id="customer">
+    <td id="customer-fullName">{{customer.fullName}}</td>
+    <td id="customer-email">{{customer.email}}</td>
   </tr>
   </tbody>
 </table>
