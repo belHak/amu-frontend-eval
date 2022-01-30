@@ -12,7 +12,7 @@ export const API_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiI
 export const resetDatabase = () => {
   cy.request({
     method: "DELETE",
-    url: API_URL + "/invoices",
+    url: API_URL + "/invoices?id=neq.-1",
     headers: {
       apiKey: API_KEY,
     },
@@ -20,7 +20,7 @@ export const resetDatabase = () => {
 
   cy.request({
     method: "DELETE",
-    url: API_URL + "/customers",
+    url: API_URL + "/customers?id=neq.-1",
     headers: {
       apiKey: API_KEY,
     },

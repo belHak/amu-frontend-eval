@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "serve": " npm i --prefix ./app & npm start --prefix ./app",
+    "serve": "npm i && npm i --prefix ./app && npm start --prefix ./app",
     "test": "echo \"Error: no test specified\" && exit 1",
     "cy:run": "cypress run",
     "cy:open": "cypress open"
