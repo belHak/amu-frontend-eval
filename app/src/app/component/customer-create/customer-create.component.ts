@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ApiService} from "../../service/api.service";
 import {Router} from "@angular/router";
 import {FormControl, FormGroup} from "@angular/forms";
@@ -17,23 +17,22 @@ export class CustomerCreateComponent implements OnInit {
   });
 
   constructor(private api: ApiService,
-              private router: Router) { }
+              private router: Router) {
+  }
 
   ngOnInit(): void {
   }
 
   onSubmit() {
     this.api.createCustomer(this.customerForm.value).subscribe(
-      ()=> {
+      () => {
         this.router.navigate([''])
-      }, error => {
-        console.log(error)
       }
     )
   }
 
   returnToCustomerList() {
-      this.router.navigate([''])
+    this.router.navigate([''])
   }
 }
 

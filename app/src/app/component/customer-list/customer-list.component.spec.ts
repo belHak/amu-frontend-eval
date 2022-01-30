@@ -42,15 +42,17 @@ describe('CustomerListComponent', () => {
       {fullName: "jacque jean", email: 'jacque@gmail.fr'}
     ]
 
-    // Check that component init customers by api call
+    // Check that component init customers by api call and mock the response
     const req = httpMock.expectOne(apiService.API_URL+'customers?select=*');
     expect(req.request.method).toBe("GET");
     req.flush(customers);
     fixture.detectChanges();
 
+    // Extract table of customers
     const customersTable: HTMLElement = fixture.nativeElement.querySelector('#customer-list')
     expect(customersTable.querySelectorAll('tr').length).toEqual(3, "Table must contains 3 rows, title + 2  customers");
 
+    // Extract rows of customers
     const customersRows = customersTable.querySelectorAll('#customer')
     expect(customersRows.length).toEqual(2, "table must contains 2 customers")
 

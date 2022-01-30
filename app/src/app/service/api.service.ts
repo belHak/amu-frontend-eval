@@ -48,10 +48,6 @@ export class ApiService {
     return this.http.post<any>(this.API_URL+this.CUSTOMERS_BASE, customer, this.httpPostOptions);
   }
 
-  getAllInvoices(): Observable<Invoice[]>{
-    return this.http.get<Invoice[]>(this.API_URL+this.INVOICES_BASE+"?select=*",this.httpGetOptions);
-  }
-
   getInvoicesByCustomerId(customerId: number): Observable<Invoice[]>{
     return this.http.get<Invoice[]>(this.API_URL+this.INVOICES_BASE+"?customer_id=eq."+customerId+"&select=*",this.httpGetOptions);
   }

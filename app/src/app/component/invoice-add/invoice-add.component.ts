@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Customer} from "../../type/customer";
 import {FormControl, FormGroup} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
@@ -11,11 +11,10 @@ import {ApiService} from "../../service/api.service";
 })
 export class InvoiceAddComponent implements OnInit {
 
-  customer: Customer|any = null
+  customer: Customer | any = null
   invoiceStatusValues = [
     {id: "PAID", value: "Payée"},
     {id: "SENT", value: "Envoyée"},
-
   ]
 
   invoiceForm = new FormGroup({
@@ -51,10 +50,8 @@ export class InvoiceAddComponent implements OnInit {
   onSubmit() {
     const invoice = {...this.invoiceForm.value, customer_id: this.customer.id}
     this.apiService.createInvoice(invoice).subscribe(
-      (result)=> {
+      (result) => {
         this.router.navigate([this.customer.id])
-      }, error => {
-
       }
     )
   }
