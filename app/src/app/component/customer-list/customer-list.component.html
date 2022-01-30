@@ -1,0 +1,21 @@
+<h1>Liste des clients</h1>
+<button type="button" class="btn btn-primary" (click)="goToCreateClient()">Créer un client</button>
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th scope="col">FullName</th>
+    <th scope="col">Email</th>
+  </tr>
+  </thead>
+  <tbody>
+
+  <div *ngIf="(customers.length ==0)">
+    <td>Aucun client</td>
+  </div>
+
+  <tr *ngFor="let customer of customers" (click)="goToCustomerDetails(customer.id)">
+    <td>{{customer.fullName}}</td>
+    <td>{{customer.email}}</td>
+  </tr>
+  </tbody>
+</table>

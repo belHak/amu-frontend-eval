@@ -1,0 +1,29 @@
+<h1>Créer un client</h1>
+
+<div class="col-lg-6">
+  <div class="bs-component">
+    <form (ngSubmit)="onSubmit()" [formGroup]="customerForm">
+      <fieldset>
+
+        <div class="form-group">
+          <label for="fullName" class="form-label mt-4">Nom complet</label>
+          <input type="text" class="form-control" id="fullName" name="fullName" placeholder="Entrez votre nom complet"  formControlName="fullName" [required]="true">
+        </div>
+
+        <div class="form-group">
+          <label for="email" class="form-label mt-4">Adresse email</label>
+          <input type="email" class="form-control" id="email" name="email" placeholder="Entrez votre addresse email" formControlName="email" [required]="true">
+        </div>
+
+      </fieldset>
+      <button [disabled]="!customerForm.value.email || !customerForm.value.fullName" class="btn btn-primary">Enregistrer</button>
+      <button type="button" class="btn btn-secondary" (click)="returnToCustomerList()">Retour aux clients</button>
+
+
+    </form>
+  </div>
+</div>
+
+
+
+

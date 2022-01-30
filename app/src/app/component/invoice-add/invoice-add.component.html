@@ -1,0 +1,32 @@
+<h1>Créer une facture</h1>
+<div class="col-lg-6">
+  <div class="bs-component">
+    <form (ngSubmit)="onSubmit()" [formGroup]="invoiceForm">
+      <fieldset>
+
+        <div class="form-group">
+          <label>Montant</label>
+          <input
+            formControlName="amount"
+            type="number"
+            name="amount"
+            placeholder="Montant de la facture"
+          />
+        </div>
+        <div class="form-group">
+          <label for="selectStatus" class="form-label mt-4">Statut</label>
+          <select class="form-select" id="selectStatus" formControlName="status" name="status">
+            <option *ngFor="let invoiceStatus of invoiceStatusValues" [value]="invoiceStatus.id">
+              {{ invoiceStatus.value }}
+            </option>
+          </select>
+        </div>
+
+      </fieldset>
+      <button [disabled]="!invoiceForm.value.status || !invoiceForm.value.amount" class="btn btn-primary">Enregistrer la facture</button>
+      <button type="button" class="btn btn-secondary" (click)="returnToCustomer()">Retour aux clients</button>
+
+
+    </form>
+  </div>
+</div>

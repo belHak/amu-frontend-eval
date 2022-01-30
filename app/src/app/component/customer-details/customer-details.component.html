@@ -1,0 +1,36 @@
+<h1>Fiche du client</h1>
+<table class="table table-hover">
+  <tr>
+    <th scope="row">Nom complet</th>
+    <td>{{customer.fullName}}</td>
+  </tr>
+  <tr>
+    <th scope="row">Email</th>
+    <td>{{customer.email}}</td>
+  </tr>
+</table>
+
+<h3>Factures :</h3>
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th scope="col">Montant</th>
+    <th scope="col">Statut</th>
+  </tr>
+  </thead>
+  <tbody>
+
+  <div *ngIf="(invoices.length ==0)">
+    <td>Aucune facture</td>
+  </div>
+
+  <tr *ngFor="let invoice of invoices">
+    <td>{{invoice.amount}}</td>
+    <td>{{invoice.status}}</td>
+  </tr>
+
+
+  </tbody>
+</table>
+<button *ngIf="customer.id" type="button" class="btn btn-primary" (click)="goToCreateInvoice()">Créer une facture</button>
+<button type="button" class="btn btn-secondary" (click)="goToCustomerList()">Retour aux clients</button>
