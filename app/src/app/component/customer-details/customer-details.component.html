@@ -14,7 +14,7 @@
 <table id="invoices" class="table table-hover">
   <thead>
   <tr>
-    <th scope="col">Montant</th>
+    <th scope="col">Montant (€)</th>
     <th scope="col">Statut</th>
   </tr>
   </thead>
@@ -26,7 +26,12 @@
 
   <tr *ngFor="let invoice of invoices">
     <td>{{invoice.amount}}</td>
-    <td>{{invoice.status}}</td>
+    <td [ngSwitch]="invoice.status">
+      <div *ngSwitchCase="'PAID'">Payée</div>
+      <div *ngSwitchCase="'SENT'">Envoyée</div>
+      <div *ngSwitchDefault>Statut invalide</div>
+    </td>
+
   </tr>
 
 
